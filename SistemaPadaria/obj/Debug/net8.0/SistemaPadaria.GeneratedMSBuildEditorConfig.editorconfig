@@ -18,24 +18,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Git Hub Repositorios\Sistema Padaria\SistemaPadaria
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/CadastrarProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcQ2FkYXN0cmFyUHJvZHV0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/Alterar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcQWx0ZXJhci5jc2h0bWw=
+[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/EditarProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcRWRpdGFyUHJvZHV0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/Cadastrar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcQ2FkYXN0cmFyLmNzaHRtbA==
+[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/GerenciarProdutos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcR2VyZW5jaWFyUHJvZHV0b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/Listar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcTGlzdGFyLmNzaHRtbA==
+[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/Remover.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcUmVtb3Zlci5jc2h0bWw=
+[D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Produtos/RemoverProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcUmVtb3ZlclByb2R1dG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Git Hub Repositorios/Sistema Padaria/SistemaPadaria/Views/Shared/Error.cshtml]

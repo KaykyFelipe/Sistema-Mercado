@@ -1,9 +1,20 @@
+using SistemaPadaria.Configuration;
+using Microsoft.EntityFrameworkCore;
+using SistemaPadaria.Repositorio;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+builder.Services.AddDbContext<BancoContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();//Toda vez que minha IContatoRepositorio dor chamada quero que ele usa todos atributos e metodos da ContatoRepositorio
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

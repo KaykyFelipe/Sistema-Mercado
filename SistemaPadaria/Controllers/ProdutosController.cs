@@ -6,9 +6,14 @@ namespace SistemaPadaria.Controllers;
 
 public class ProdutosController : Controller
 {
-    public IActionResult Cadastrar()
+    public IActionResult GerenciarProdutos()
     {
-        return View();
+
+        List <ProdutoModel> contatos = _contatoRepositorio.BuscarContatos();
+
+        return View(contatos);
+
+        
     }
 
  public IActionResult Alterar()

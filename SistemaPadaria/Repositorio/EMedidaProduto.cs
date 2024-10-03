@@ -1,4 +1,4 @@
-namespace SistemaPadaria.Models
+namespace SistemaPadaria.Repositorio
 {
 
 

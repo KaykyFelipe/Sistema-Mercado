@@ -1,0 +1,45 @@
+﻿@{
+  ViewData["Title"] = "Lista de Contatos";
+}
+
+<div class = "text-center">
+
+<div class = "d-grid gap-2 d-md-flex justify-content-md-start"> 
+  <a class="btn btn-primary" role = "button" asp-controller="Contato" asp-action="Criar">Adicionar Novo Produto</a>
+  </div>
+<br>
+<h1 class="h3"><strong>Listagem de Produtos</strong></h1>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Medida</th>
+    </tr>
+  </thead>
+  @* <tbody>
+    @if(Model != null && Model.Any())
+    {
+      foreach (ContatoModel contato in Model)
+      {
+        <tr>
+          <th scope = "row">@contato.Id</th>
+          <td>@contato.Nome</td>
+          <td>@contato.Email</td>
+          <td>@contato.Numero</td>
+          <td>
+              <div class="btn-group" role="group">
+                <a role="button" class="btn btn-primary" asp-route-id = "@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
+                <a role="button" class="btn btn-danger"  asp-route-id = "@contato.Id" asp-controller="Contato" asp-action="ConfirmarRemover">Apagar</a>
+                </div>
+          </td>
+          </tr>
+
+      }
+    }
+  </tbody> *@
+</table>
+</div>

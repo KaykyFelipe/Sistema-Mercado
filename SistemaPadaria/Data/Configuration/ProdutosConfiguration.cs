@@ -2,12 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using SistemaPadaria.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CursoEFCore.Data.Configuration
+namespace SistemaPadaria.Configuration
 {
 
-    public class ProdutoConfiguration : IEntityTypeConfiguration<Produto>
+    public class ProdutoConfiguration : IEntityTypeConfiguration<ProdutoModel>
     {
-        public void Configure(EntityTypeBuilder<Produto> builder)
+        public void Configure(EntityTypeBuilder<ProdutoModel> builder)
         {
                         builder.ToTable("Produtos");
                         builder.HasKey(p => p.CodigoBarras);
