@@ -5,16 +5,17 @@ using SistemaPadaria.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+var Configuration = builder.Configuration;
 
-var app = builder.Build();
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BancoContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
-builder.Services.AddControllersWithViews();
+options.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+// Add services to the container.
 builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();//Toda vez que minha IContatoRepositorio dor chamada quero que ele usa todos atributos e metodos da ContatoRepositorio
 
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

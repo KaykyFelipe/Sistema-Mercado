@@ -1,6 +1,8 @@
 Adicionar o pacote do SQL Server ao seu projeto:
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
+dotnet add package Microsoft.Extensions.Configuration
+
 Instalar a ferramenta dotnet-ef globalmente:
 dotnet tool install --global dotnet-ef
 
@@ -15,3 +17,4 @@ dotnet ef migrations add Migration1
 
 Atualizar o banco de dados com a migração:
 dotnet ef database update
+

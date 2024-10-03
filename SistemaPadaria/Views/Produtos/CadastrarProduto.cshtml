@@ -1,3 +1,4 @@
+@model ProdutoModel
 @{
     ViewData["Title"] = "Cadastrar Page";
 }
@@ -8,18 +9,20 @@
 
 <br>
 
+
+<form asp-controller="Produtos" asp-action="CadastrarProduto" method="post">
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  placeholder="Codigo do Produto">
+  <input type="text" asp-for = "CodigoBarras" class="form-control"  placeholder="Codigo do Produto" >
   <label for="floatingInput">Codigo do Produto</label>
 </div>
 
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  placeholder="Nome do Produto">
+  <input type="text" asp-for = "Nome" class="form-control"  placeholder="Nome do Produto">
   <label for="floatingInput">Nome do Produto</label>
 </div>
 
 <div class="form-floating mb-3">
-  <input type="decimal" class="form-control"  placeholder="Nome do Produto">
+  <input type="decimal" asp-for = "Valor" class="form-control"  placeholder="Nome do Produto">
   <label for="floatingInput">Valor do Produto</label>
 </div>
 
@@ -30,7 +33,7 @@
 </select>
 <br>
 </div>
-
+</form>
 
 <div class="text-center">
  <button type = "submit"class="btn btn-primary w-100" type="button"><strong>Cadastrar</strong></button>

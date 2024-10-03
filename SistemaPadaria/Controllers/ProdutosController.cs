@@ -6,15 +6,39 @@ namespace SistemaPadaria.Controllers;
 
 public class ProdutosController : Controller
 {
+
+private readonly IProdutoRepositorio _produtoRepositorio;//fazendo a injeção de dependencia
+
+    public ProdutosController(IProdutoRepositorio produtoRepositorio){
+
+        _produtoRepositorio = produtoRepositorio;
+    }
+   
+
     public IActionResult GerenciarProdutos()
     {
+     
 
-        List <ProdutoModel> contatos = _contatoRepositorio.BuscarContatos();
+    List<ProdutoModel> produtos = _produtoRepositorio.BuscarProdutos();
 
-        return View(contatos);
 
-        
+        return View(produtos);
+    
     }
+
+ public IActionResult CadastrarProduto()
+    {
+        
+        return View();
+    }
+
+
+
+
+
+
+
+
 
  public IActionResult Alterar()
     {
