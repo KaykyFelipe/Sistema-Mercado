@@ -33,7 +33,14 @@ private readonly IProdutoRepositorio _produtoRepositorio;//fazendo a injeção d
     }
 
 
+[HttpPost]
+    public ActionResult CadastrarProduto(ProdutoModel produto)
+    {
+        _produtoRepositorio.Adicionar(produto);
 
+        return RedirectToAction("CadastrarProduto"); //redireciona para index
+
+    }
 
 
 

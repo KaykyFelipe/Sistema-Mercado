@@ -11,6 +11,7 @@
 
 
 <form asp-controller="Produtos" asp-action="CadastrarProduto" method="post">
+
 <div class="form-floating mb-3">
   <input type="text" asp-for = "CodigoBarras" class="form-control"  placeholder="Codigo do Produto" >
   <label for="floatingInput">Codigo do Produto</label>
@@ -27,14 +28,17 @@
 </div>
 
 <div>
-<select class="form-select" >
-  <option value="Unidade">Unidade</option>
+<select class="form-select" asp-for="MedidaProduto" >
+  <option value="Unidade" >Unidade</option>
   <option value="Gramas">Gramas</option>
 </select>
 <br>
 </div>
-</form>
 
-<div class="text-center">
- <button type = "submit"class="btn btn-primary w-100" type="button"><strong>Cadastrar</strong></button>
-</div>
+
+
+ <button type = "submit"asp-controller="Produtos" asp-action="CadastrarProduto"class="btn btn-primary w-100" type="button"><strong>Cadastrar</strong></button>
+ <br>
+ <br>
+ <a class="btn btn-secondary w-100" asp-controller="Produtos" asp-action="GerenciarProdutos" role="button">Voltar</a>
+ </form>
