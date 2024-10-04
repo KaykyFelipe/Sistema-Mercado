@@ -11,8 +11,8 @@ using SistemaPadaria.Configuration;
 namespace SistemaPadaria.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20241003183443_Migration2")]
-    partial class Migration2
+    [Migration("20241004185257_Migration1")]
+    partial class Migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,8 +26,15 @@ namespace SistemaPadaria.Migrations
 
             modelBuilder.Entity("SistemaPadaria.Models.ProdutoModel", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<string>("CodigoBarras")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(25)");
 
                     b.Property<string>("Descricao")
                         .HasColumnType("VARCHAR(150)");
@@ -43,7 +50,7 @@ namespace SistemaPadaria.Migrations
                     b.Property<decimal>("Valor")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("CodigoBarras");
+                    b.HasKey("Id");
 
                     b.ToTable("Produtos", (string)null);
                 });

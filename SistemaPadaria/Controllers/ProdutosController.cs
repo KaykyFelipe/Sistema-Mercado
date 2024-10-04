@@ -7,34 +7,35 @@ namespace SistemaPadaria.Controllers;
 public class ProdutosController : Controller
 {
 
-private readonly IProdutoRepositorio _produtoRepositorio;//fazendo a injeção de dependencia
+    private readonly IProdutoRepositorio _produtoRepositorio;//fazendo a injeção de dependencia
 
-    public ProdutosController(IProdutoRepositorio produtoRepositorio){
+    public ProdutosController(IProdutoRepositorio produtoRepositorio)
+    {
 
         _produtoRepositorio = produtoRepositorio;
     }
-   
+
 
     public IActionResult GerenciarProdutos()
     {
-     
 
-    List<ProdutoModel> produtos = _produtoRepositorio.BuscarProdutos();
+
+        List<ProdutoModel> produtos = _produtoRepositorio.BuscarProdutos();
 
 
         return View(produtos);
-    
+
     }
 
- public IActionResult CadastrarProduto()
+    public IActionResult CadastrarProduto()
     {
-        
+
         return View();
     }
 
 
-[HttpPost]
-    public ActionResult CadastrarProduto(ProdutoModel produto)
+    [HttpPost]
+    public ActionResult CadastrarProduto(ProdutoModel produto)//METODO
     {
         _produtoRepositorio.Adicionar(produto);
 
@@ -42,25 +43,30 @@ private readonly IProdutoRepositorio _produtoRepositorio;//fazendo a injeção d
 
     }
 
-
-
-
-
-
- public IActionResult Alterar()
-    {
-        return View();
-    }
-
- public IActionResult Remover()
-    {
-        return View();
-    }
-
- public IActionResult Listar()
-    {
-        return View();
-    }
-
-   
+  public IActionResult EditarProduto(int id)
+{
+    ProdutoModel produto = _produtoRepositorio.ListarProduto(id);
+    return View(produto);
 }
+
+    [HttpPost]
+    public IActionResult AtualizarProduto(ProdutoModel produto)
+    {
+        _produtoRepositorio.Atualizar(produto);
+
+        return RedirectToAction("GerenciarProdutos");
+    }
+
+
+      public IActionResult RemoverProduto(int id)
+    {
+        _produtoRepositorio.Remover(id);
+
+        return RedirectToAction("GerenciarProdutos");
+    }
+    
+
+}
+
+
+

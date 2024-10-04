@@ -27,17 +27,18 @@ public class ProdutoRepositorio : IProdutoRepositorio
             return _bancoContext.Set<ProdutoModel>().ToList();
         }
 
-        public ProdutoModel ListarId(string codigoBarras)
-        {
-            return _bancoContext.Set<ProdutoModel>().FirstOrDefault(x => x.CodigoBarras == codigoBarras);
+        public ProdutoModel ListarProduto(int id)
+        {          
+
+            return  _bancoContext.Produtos.FirstOrDefault(x => x.Id == id);
         }
 
         public ProdutoModel Atualizar(ProdutoModel produto)
         {
-            ProdutoModel produtoDB = ListarId(produto.CodigoBarras);
+            ProdutoModel produtoDB = ListarProduto(produto.Id);
 
             if(produtoDB == null)throw new Exception("Houve um erro na atualização do produto!!");
-
+            produtoDB.CodigoBarras = produto.CodigoBarras;
             produtoDB.Nome = produto.Nome;
             produtoDB.Valor = produto.Valor;
             produtoDB.MedidaProduto = produto.MedidaProduto; //medida é um enum
@@ -51,9 +52,9 @@ public class ProdutoRepositorio : IProdutoRepositorio
             
         }
 
-        public bool Remover(string codigoBarras)
+        public bool Remover(int id)
         {
-            ProdutoModel produtoDB = ListarId(codigoBarras);
+            ProdutoModel produtoDB = ListarProduto(id);
 
             if(produtoDB == null)throw new Exception("Houve um erro na Remoção do produto!!");
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaPadaria")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21df6fe9221271145988d28a56f4b8b3ae91162c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b5c25fbc14fe85fd191b7195bf5a782e5df2fd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaPadaria")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaPadaria")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

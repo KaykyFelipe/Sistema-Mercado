@@ -23,8 +23,15 @@ namespace SistemaPadaria.Migrations
 
             modelBuilder.Entity("SistemaPadaria.Models.ProdutoModel", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<string>("CodigoBarras")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(25)");
 
                     b.Property<string>("Descricao")
                         .HasColumnType("VARCHAR(150)");
@@ -40,7 +47,7 @@ namespace SistemaPadaria.Migrations
                     b.Property<decimal>("Valor")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("CodigoBarras");
+                    b.HasKey("Id");
 
                     b.ToTable("Produtos", (string)null);
                 });

@@ -9,11 +9,11 @@ public interface IProdutoRepositorio{
 
     List<ProdutoModel> BuscarProdutos();
 
-    ProdutoModel ListarId(string codigoBarras);
+    ProdutoModel ListarProduto(int codigoBarras);
 
     ProdutoModel Atualizar(ProdutoModel Produto);
 
-    bool Remover(string codigoBarras);
+    bool Remover(int codigoBarras);
 
 
 }

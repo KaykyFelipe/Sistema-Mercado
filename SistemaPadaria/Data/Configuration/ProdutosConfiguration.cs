@@ -10,7 +10,8 @@ namespace SistemaPadaria.Configuration
         public void Configure(EntityTypeBuilder<ProdutoModel> builder)
         {
                         builder.ToTable("Produtos");
-                        builder.HasKey(p => p.CodigoBarras);
+                        builder.HasKey(p => p.Id);
+                        builder.Property(p => p.CodigoBarras).HasColumnType("VARCHAR(25)").IsRequired();
                         builder.Property(p => p.Nome).HasColumnType("VARCHAR(25)").IsRequired();
                         builder.Property(p => p.Valor).IsRequired();
                         builder.Property(p => p.MedidaProduto).HasConversion<string>(); //O Tipo produto é informada como uma String
