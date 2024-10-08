@@ -58,11 +58,19 @@ public class ProdutosController : Controller
     }
 
 
-      public IActionResult RemoverProduto(int id)
+  
+    public IActionResult RemoverProduto(int id)
     {
-        _produtoRepositorio.Remover(id);
+      ProdutoModel produto = _produtoRepositorio.ListarProduto(id);   
+        return View(produto);
+    }
 
-        return RedirectToAction("GerenciarProdutos");
+     public IActionResult Remover(int id)
+    {
+         _produtoRepositorio.Remover(id);
+
+        return RedirectToAction("GerenciarProdutos"); //redireciona para index
+
     }
     
 
