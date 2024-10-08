@@ -15,25 +15,28 @@
 <div class="form-floating mb-3">
   <input type="text" asp-for = "CodigoBarras" class="form-control"  placeholder="Codigo do Produto" >
   <label for="floatingInput">Codigo do Produto</label>
+  @Html.ValidationMessageFor(x=> x.CodigoBarras)
 </div>
 
 <div class="form-floating mb-3">
   <input type="text" asp-for = "Nome" class="form-control"  placeholder="Nome do Produto">
   <label for="floatingInput">Nome do Produto</label>
+  @Html.ValidationMessageFor(x=> x.Nome)
 </div>
 
 <div class="form-floating mb-3">
   <input type="decimal" asp-for = "Valor" class="form-control"  placeholder="Nome do Produto">
   <label for="floatingInput">Valor do Produto</label>
+  @Html.ValidationMessageFor(x=> x.Valor)
 </div>
 
-<div>
+@* <div>
 <select class="form-select" asp-for="MedidaProduto" >
   <option value="Unidade" >Unidade</option>
   <option value="Gramas">Gramas</option>
 </select>
 <br>
-</div>
+</div> *@
 
 
 

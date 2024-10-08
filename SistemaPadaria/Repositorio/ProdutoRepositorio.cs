@@ -58,6 +58,7 @@ public class ProdutoRepositorio : IProdutoRepositorio
 
             if(produtoDB == null)throw new Exception("Houve um erro na Remoção do produto!!");
 
+
             _bancoContext.Produtos.Remove(produtoDB);
             _bancoContext.SaveChanges();
             

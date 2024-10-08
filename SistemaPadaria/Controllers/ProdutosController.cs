@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SistemaPadaria.Models;
 
 namespace SistemaPadaria.Controllers;
@@ -37,10 +38,12 @@ public class ProdutosController : Controller
     [HttpPost]
     public ActionResult CadastrarProduto(ProdutoModel produto)//METODO
     {
-        _produtoRepositorio.Adicionar(produto);
-
-        return RedirectToAction("CadastrarProduto"); //redireciona para index
-
+        if(ModelState.IsValid){
+               _produtoRepositorio.Adicionar(produto);
+                return RedirectToAction("CadastrarProduto"); //redireciona para index
+        }
+     
+        return View(produto);
     }
 
   public IActionResult EditarProduto(int id)
