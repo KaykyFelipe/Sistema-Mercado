@@ -9,6 +9,13 @@
 
 <br>
 
+@* Saida de Erro CamposObrigatorios *@
+@if (ViewData.ModelState.ContainsKey("CamposObrigatorios") && ViewData.ModelState["CamposObrigatorios"].Errors.Count > 0)
+{
+    <div class="alert alert-danger">
+        <p>@ViewData.ModelState["CamposObrigatorios"].Errors[0].ErrorMessage</p>
+    </div>
+}
 
 <form asp-controller="Produtos" asp-action="AtualizarProduto" method="post">
 

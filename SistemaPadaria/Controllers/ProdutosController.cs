@@ -34,19 +34,29 @@ public class ProdutosController : Controller
         return View();
     }
 
-
-    [HttpPost]
-    public ActionResult CadastrarProduto(ProdutoModel produto)//METODO
+    public IActionResult AtualizarProduto()
     {
-        if(ModelState.IsValid){
-               _produtoRepositorio.Adicionar(produto);
-                return RedirectToAction("CadastrarProduto"); //redireciona para index
-        }
-     
-        return View(produto);
+
+        return View();
     }
 
-  public IActionResult EditarProduto(int id)
+
+
+    [HttpPost]
+    public ActionResult CadastrarProduto(ProdutoModel produto)
+    {
+        if (produto.Valor == null || string.IsNullOrEmpty(produto.CodigoBarras) || string.IsNullOrEmpty(produto.Nome))
+        {
+            ModelState.AddModelError("CamposObrigatorios", "Campos obrigatórios não preenchidos.");
+            return View(produto);
+        }
+
+        _produtoRepositorio.Adicionar(produto);
+        return RedirectToAction("GerenciarProdutos");
+    }
+
+
+    public IActionResult EditarProduto(int id)
 {
     ProdutoModel produto = _produtoRepositorio.ListarProduto(id);
     return View(produto);
@@ -55,8 +65,14 @@ public class ProdutosController : Controller
     [HttpPost]
     public IActionResult AtualizarProduto(ProdutoModel produto)
     {
-        _produtoRepositorio.Atualizar(produto);
 
+         if (produto.Valor == null || string.IsNullOrEmpty(produto.CodigoBarras) || string.IsNullOrEmpty(produto.Nome))
+        {
+            ModelState.AddModelError("CamposObrigatorios", "Campos obrigatórios não preenchidos.");
+            return View("EditarProduto");
+        }
+
+        _produtoRepositorio.Atualizar(produto);
         return RedirectToAction("GerenciarProdutos");
     }
 
@@ -75,6 +91,8 @@ public class ProdutosController : Controller
         return RedirectToAction("GerenciarProdutos"); //redireciona para index
 
     }
+
+    
     
 
 }

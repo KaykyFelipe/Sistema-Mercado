@@ -1,0 +1,99 @@
+﻿@model ProdutoModel
+@{
+    ViewData["Title"] = "Caixa Page";
+}
+
+<div class="text-center">
+    <form id="produtoForm" asp-controller="Caixa" asp-action="AdicionarProdutoCaixa" method="post">
+        <div class="form-floating mb-3">
+            <input type="text" asp-for="CodigoBarras" class="form-control" id="codigoBarrasInput" oninput="submitAutomatico()">
+            <label for="floatingInput">Codigo do Produto</label>
+        </div>
+    </form>
+    <br>
+    <h1 class="h3"><strong>Listagem de Produtos</strong></h1>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Gramas/Unidade</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaProdutos">
+            <!-- Produtos serão adicionados aqui -->
+        </tbody>
+    </table>
+    <div>
+        <h4>Total: R$ <span id="totalValor">0.00</span></h4>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function submitAutomatico() {
+        var codigo = $('#codigoBarrasInput').val();
+        if (codigo.length === 12) {
+            $.ajax({
+                url: '@Url.Action("AdicionarProdutoCaixa", "Caixa")',
+                type: 'POST',
+                data: { codigoBarras: codigo },
+                success: function (produto) {
+                    if (produto) {
+                        adicionarProdutoNaTabela(produto);
+                    } else {
+                        alert("Produto não encontrado.");
+                    }
+                }
+            });
+        }
+    }
+
+    function adicionarProdutoNaTabela(produto) {
+        var linha = '<tr>' +
+            '<td>' + produto.codigoBarras + '</td>' +
+            '<td>' + produto.nome + '</td>' +
+            '<td>' + produto.valor + '</td>' +
+            '<td>' + '<input type="number" min="1" value="1" data-valor="' + produto.valor + '" data-medida="' + produto.medida + '" onchange="atualizarTotalProduto(this)">' + '</td>' +
+            '</tr>';
+        $('#tabelaProdutos').append(linha);
+        atualizarTotal(produto.valor); // Adiciona o valor inicial
+    }
+
+    function atualizarTotalProduto(input) {
+        var valorUnitario = parseFloat($(input).attr('data-valor'));
+        var medida = $(input).attr('data-medida');
+        var quantidade = parseFloat(input.value);
+
+        // Verifica se a quantidade é um número válido
+        if (isNaN(quantidade) || quantidade < 1) {
+            quantidade = 1;
+            input.value = 1;
+        }
+
+        var valorTotalAtual = parseFloat($(input).attr('data-valor-total')) || valorUnitario;
+        var valorNovoTotal = 0;
+
+        if (medida === 'Unidade') {
+            valorNovoTotal = valorUnitario * quantidade;
+        } else if (medida === 'Gramas') {
+            valorNovoTotal = valorUnitario * (quantidade / 1000); // 1000 gramas = 1 kg
+        }
+
+        var diferenca = valorNovoTotal - valorTotalAtual;
+        $(input).attr('data-valor-total', valorNovoTotal);
+
+        atualizarTotal(diferenca);
+    }
+
+    function atualizarTotal(diferenca) {
+        var total = parseFloat($('#totalValor').text());
+        total += diferenca;
+        if (isNaN(total) || total < 0) {
+            total = 0; // Previne valores negativos e NaN
+        }
+        $('#totalValor').text(total.toFixed(2));
+    }
+</script>

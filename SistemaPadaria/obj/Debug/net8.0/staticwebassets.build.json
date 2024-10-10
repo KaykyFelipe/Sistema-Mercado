@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wj8R4GanSCaZqFz34FxphpB+w7j7gk15LBM1+LhDj2Y=",
+  "Hash": "58/UQuWvLITkxktFm4iOyw2UDyVv3o5fFoQ20vIFdWU=",
   "Source": "SistemaPadaria",
   "BasePath": "_content/SistemaPadaria",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SistemaPadaria\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SistemaPadaria\\wwwroot\\js\\caixa.js",
       "SourceId": "SistemaPadaria",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SistemaPadaria\\wwwroot\\",
       "BasePath": "_content/SistemaPadaria",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/caixa.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\caixa.js"
     },
     {
       "Identity": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SistemaPadaria\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
