@@ -11,7 +11,7 @@
         </div>
     </form>
     <br>
-    <h1 class="h3"><strong>Listagem de Produtos</strong></h1>
+    <h1 class="h3"><strong></strong></h1>
     <br>
     <table class="table">
         <thead>
@@ -20,80 +20,25 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Gramas/Unidade</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody id="tabelaProdutos">
             <!-- Produtos serão adicionados aqui -->
         </tbody>
     </table>
-    <div>
-        <h4>Total: R$ <span id="totalValor">0.00</span></h4>
-    </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    function submitAutomatico() {
-        var codigo = $('#codigoBarrasInput').val();
-        if (codigo.length === 12) {
-            $.ajax({
-                url: '@Url.Action("AdicionarProdutoCaixa", "Caixa")',
-                type: 'POST',
-                data: { codigoBarras: codigo },
-                success: function (produto) {
-                    if (produto) {
-                        adicionarProdutoNaTabela(produto);
-                    } else {
-                        alert("Produto não encontrado.");
-                    }
-                }
-            });
-        }
-    }
+<!-- Barra de navegação fixa na parte inferior da tela -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+    <div class="container-fluid">
+        <h4>Valor Pago: R$ <input type="number" id="valorPago" min="0" onchange="calcularTroco()"></h4>
+        <h4>Troco: R$ <span id="troco">0.00</span></h4>  
+        <h4>Total: R$ <span id="totalValor">0.00</span></h4>
+        
+    </div>
+</nav>
 
-    function adicionarProdutoNaTabela(produto) {
-        var linha = '<tr>' +
-            '<td>' + produto.codigoBarras + '</td>' +
-            '<td>' + produto.nome + '</td>' +
-            '<td>' + produto.valor + '</td>' +
-            '<td>' + '<input type="number" min="1" value="1" data-valor="' + produto.valor + '" data-medida="' + produto.medida + '" onchange="atualizarTotalProduto(this)">' + '</td>' +
-            '</tr>';
-        $('#tabelaProdutos').append(linha);
-        atualizarTotal(produto.valor); // Adiciona o valor inicial
-    }
-
-    function atualizarTotalProduto(input) {
-        var valorUnitario = parseFloat($(input).attr('data-valor'));
-        var medida = $(input).attr('data-medida');
-        var quantidade = parseFloat(input.value);
-
-        // Verifica se a quantidade é um número válido
-        if (isNaN(quantidade) || quantidade < 1) {
-            quantidade = 1;
-            input.value = 1;
-        }
-
-        var valorTotalAtual = parseFloat($(input).attr('data-valor-total')) || valorUnitario;
-        var valorNovoTotal = 0;
-
-        if (medida === 'Unidade') {
-            valorNovoTotal = valorUnitario * quantidade;
-        } else if (medida === 'Gramas') {
-            valorNovoTotal = valorUnitario * (quantidade / 1000); // 1000 gramas = 1 kg
-        }
-
-        var diferenca = valorNovoTotal - valorTotalAtual;
-        $(input).attr('data-valor-total', valorNovoTotal);
-
-        atualizarTotal(diferenca);
-    }
-
-    function atualizarTotal(diferenca) {
-        var total = parseFloat($('#totalValor').text());
-        total += diferenca;
-        if (isNaN(total) || total < 0) {
-            total = 0; // Previne valores negativos e NaN
-        }
-        $('#totalValor').text(total.toFixed(2));
-    }
-</script>
+<!-- Referência ao arquivo JS -->
+<script src="~/js/caixa.js"></script>
