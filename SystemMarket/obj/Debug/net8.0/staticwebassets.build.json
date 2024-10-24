@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N9/GRVqM4W9YIfvG15nxOTeNHLvVAUQz9Nv5pnn/LQc=",
+  "Hash": "SHFKe0a6Fp4KHoN21AWPeoUfjqmheI/sp/z40aeIapE=",
   "Source": "SystemMarket",
   "BasePath": "_content/SystemMarket",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SystemMarket\\wwwroot\\img\\IconeCarrinho.png",
+      "SourceId": "SystemMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SystemMarket\\wwwroot\\",
+      "BasePath": "_content/SystemMarket",
+      "RelativePath": "img/IconeCarrinho.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\IconeCarrinho.png"
     },
     {
       "Identity": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SystemMarket\\wwwroot\\js\\caixa.js",

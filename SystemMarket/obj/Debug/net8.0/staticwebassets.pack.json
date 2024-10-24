@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SystemMarket\\wwwroot\\img\\IconeCarrinho.png",
+      "PackagePath": "staticwebassets\\img\\IconeCarrinho.png"
+    },
+    {
       "Id": "C:\\Users\\MW Contabilidade\\Documents\\GitHub\\Sistema-Padaria\\SystemMarket\\wwwroot\\js\\caixa.js",
       "PackagePath": "staticwebassets\\js\\caixa.js"
     },
